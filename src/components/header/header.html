@@ -10,11 +10,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link active" href="#">Pokemon</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Item 2</a>
+          <li class="nav-item" repeat.for="nav of router.navigation">
+            <a class="${'nav-link ' + (nav.isActive ? 'active' : '')}" href.bind="nav.href">${nav.title}</a>
           </li>
         </ul>
       </div>
