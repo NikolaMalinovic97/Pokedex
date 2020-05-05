@@ -1,3 +1,44 @@
 * {
     margin: 0;
 }
+
+.content-width {
+  max-width: 1080px;
+}
+
+.content {
+  min-height: calc(100vh - 172px);
+  max-width: 1080px;
+  margin: auto;
+  padding: 15px;
+}
+
+/* HEADER STYLES */
+
+nav {
+    border-bottom: solid #222224 10px;
+}
+
+.nav-link {
+    color: #f0f0f0 !important;
+}
+
+.nav-link:hover {
+    color: yellow !important;
+}
+
+.active {
+    color: yellow !important;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #ee1515;
+    border-top: solid #222224 10px;
+    height: 86px;
+}
+
+.copyright {
+  color: #f0f0f0;
+}
