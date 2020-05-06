@@ -13,7 +13,7 @@ export class App {
     config.options.pushState = true;
     config.options.root = '/';
     config.map([
-      { route: ['', 'pokemon'], name: 'pokemon', moduleId: PLATFORM.moduleName("components/pokemon-list/pokemon-list"), title: 'Pokemon list', nav: true },
+      { route: ['', 'pokemon'], name: 'pokemon', moduleId: PLATFORM.moduleName("components/pokemon-list/pokemon-list"), title: 'Pokémon', nav: true },
       { route: 'test', name: 'test', moduleId: PLATFORM.moduleName("components/test-component/test-component"), title: 'Test', nav: true },
       { route: '*path', name: 'home', moduleId: PLATFORM.moduleName("components/not-found/not-found.html") }
     ]);
