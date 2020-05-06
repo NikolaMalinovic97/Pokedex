@@ -1,5 +1,8 @@
+import {autoinject} from 'aurelia-framework';
+import { Router } from 'aurelia-router';
+
+@autoinject
 export class Header {
 
-  constructor() {
-  }
+  constructor(private router: Router) {}
 }
