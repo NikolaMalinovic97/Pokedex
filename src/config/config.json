@@ -1,0 +1,7 @@
+{
+    "name": "Pokedex",
+    "version": 1.0,
+    "api": {
+        "endpoint": "https://pokeapi.co/api/v2"
+    }
+}

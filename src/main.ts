@@ -1,11 +1,13 @@
 import {Aurelia} from 'aurelia-framework';
 import * as environment from '../config/environment.json';
 import {PLATFORM} from 'aurelia-pal';
+import { AureliaConfiguration } from 'aurelia-configuration';
 
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
     .feature(PLATFORM.moduleName('resources/index'));
+    // .plugin(PLATFORM.moduleName('aurelia-configuration'));
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 

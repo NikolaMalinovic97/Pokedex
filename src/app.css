@@ -13,6 +13,13 @@
   padding: 15px;
 }
 
+.card-img-top {
+  background-image: url("assets/img/grass-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* HEADER STYLES */
 
 nav {
@@ -46,14 +53,14 @@ nav::after {
     display: block;
     margin-top: -16px;
     margin-bottom: -44px;
-    margin-left: calc(50% - 33px);
+    margin-left: calc(50% - 30px);
   }
 }
 
 @media (min-width: 992px) {
   nav::after {
     position: absolute;
-    left: calc(50% - 33px);
+    left: calc(50% - 30px);
     top: 45px;
   }
 }
@@ -68,4 +75,15 @@ footer {
 
 .copyright {
   color: #f0f0f0;
+}
+
+/* PAGINATION */
+
+.page-link {
+  cursor: pointer;
+}
+
+.page-item.active .page-link {
+  background-color: #ee1515 !important;
+  border-color: #222224 !important;
 }
