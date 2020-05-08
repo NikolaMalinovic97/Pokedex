@@ -3,10 +3,13 @@
   <div class="container-fluid mt-4">
     <div class="row justify-content-center">
       <div class="col-auto mb-5" repeat.for="p of pokemon">
-        <div class="card shadow text-center" style="width: 180px;"> <!--232px-->
-          <img class="card-img-top" src="${p.image}">
+        <div class="card text-center">
+          <img class="card-img-top" src="${p.image !== null ? p.image : '/img/pikachu-silhouette.png'}">
           <div class="card-body">
-            <h5 class="card-title">${p.name + ' ' + p.id}</h5>
+            <h5 class="card-title">${p.name}</h5>
+            <p class="card-number">
+              <span style="line-height: 33px;">${p.id < 1000 ? p.id : 'X'}</span>
+            </p>
           </div>
         </div>
       </div>
@@ -15,16 +18,14 @@
   <!-- Pagination -->
   <div>
     <ul class="pagination justify-content-center">
-      <li class="page-item ${activePage <= 1 ? 'disabled' : ''}">
-        <a class="page-link" click.delegate="onPageClick(activePage - 1)"><</a>
+      <li class="page-item ${paginationService.activePage <= 1 ? 'disabled' : ''}">
+        <a class="page-link" click.delegate="onPageClick(paginationService.activePage - 1)"><</a>
       </li>
-
-      <li class="page-item ${page === activePage? 'active' : ''}" repeat.for="page of pages">
+      <li class="page-item ${page === paginationService.activePage? 'active' : ''}" repeat.for="page of paginationService.pages">
         <a class="page-link" click.delegate="onPageClick(page)">${page}</a>
       </li>
-
-      <li class="page-item ${activePage >= pages[pages.length-1] ? 'disabled' : ''}">
-        <a class="page-link" click.delegate="onPageClick(activePage + 1)">></a>
+      <li class="page-item ${paginationService.activePage >= paginationService.pages[paginationService.pages.length-1] ? 'disabled' : ''}">
+        <a class="page-link" click.delegate="onPageClick(paginationService.activePage + 1)">></a>
       </li>
     </ul>
   </div>
