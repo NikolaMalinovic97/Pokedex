@@ -1,4 +1,5 @@
 <template>
+  <require from="resources/value-converters/pokename"></require>
   <!-- Cards -->
   <div class="container-fluid mt-4">
     <div class="row justify-content-center">
@@ -6,7 +7,7 @@
         <div class="card text-center">
           <img class="card-img-top" src="${p.image !== null ? p.image : '/img/pikachu-silhouette.png'}">
           <div class="card-body">
-            <h5 class="card-title">${p.name}</h5>
+            <h5 class="card-title">${p.name | pokename}</h5>
             <p class="card-number">
               <span style="line-height: 33px;">${p.id < 1000 ? p.id : 'X'}</span>
             </p>
