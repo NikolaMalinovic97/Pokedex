@@ -1,14 +1,16 @@
 export class PokenameValueConverter {
 
+  nameSufix = ['o', 'z', 'm', 'f', 'oh', 'jr', 'null', 'mime']
+
   toView(value: string) {
     const words = value.split('-');
-    let result = words[0].charAt(0).toUpperCase() + words[0].slice(1);
-    for (let i=1; i<words.length; i++) {
-      if (words[i] === 'jr' || words[i] === 'm' || words[i] === 'f') {
-        result += ' ' + words[i].charAt(0).toUpperCase() + words[i].slice(1);
+    let result = this.capitilizeFirstLetter(words[0]);
+    for (let i=1; i < words.length; i++) {
+      if (this.nameSufix.includes(words[i])) {
+        result += ' ' + this.capitilizeFirstLetter(words[i]);
       }
       else {
-        result += ' (' + words[i] + ')';
+        result += ' ' + this.surroundWithBrackets(words[i]);
       }
     }
     return result;
@@ -16,5 +18,13 @@ export class PokenameValueConverter {
 
   fromView(value) {
     //
+  }
+
+  private capitilizeFirstLetter(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }
+
+  private surroundWithBrackets(word) {
+    return `(${word})`;
   }
 }

@@ -15,15 +15,15 @@ export class PokemonList {
   attached() {
     this.pokemonService.getPokemon(0)
       .then((pokemon) => {
-        this.pokemon = pokemon;
+        this.pokemon = pokemon;        
       });
   }
 
   onPageClick(pageNumber) {
     if (pageNumber === this.paginationService.activePage)
       return;
-    this.paginationService.setActivePage(pageNumber);
-    const offset = (pageNumber - 1) * 20;    
+    this.paginationService.activePage = pageNumber;
+    const offset = (pageNumber - 1) * 20;
     this.pokemonService.getPokemon(offset).then((pokemon) => {
       this.pokemon = pokemon;
     });

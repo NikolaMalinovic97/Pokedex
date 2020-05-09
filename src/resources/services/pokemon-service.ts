@@ -19,7 +19,7 @@ export class PokemonService {
 			this.httpClient.fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`)
 				.then(result => { return result.json(); })
 				.then(data => {
-					this.paginationService.pages = this.loadPages(data.count);
+					this.paginationService.pages = this.loadPages(data.count); //problematicno
 					const pokemonUrlList = this.loadUrls(data);
 					const promises = this.loadPromises(pokemonUrlList);
 					Promise.all(promises).then(result => {
@@ -69,7 +69,7 @@ export class PokemonService {
 			name: data.name,
 			image: data.sprites['front_default'],
 			type: data.types.map(type => type.type.name)
-		}));
+		}));		
 		return pokemon;
 	}
 }
