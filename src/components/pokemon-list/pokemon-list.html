@@ -1,10 +1,11 @@
 <template>
   <require from="resources/value-converters/pokename"></require>
+  <require from="resources/attributes/poke-background"></require>
   <!-- Cards -->
   <div class="container-fluid mt-4">
     <div class="row justify-content-center">
       <div class="col-auto mb-5" repeat.for="p of pokemon">
-        <div class="card text-center">
+        <div class="card text-center" poke-background="${p.type[0]}">
           <img class="card-img-top" src="${p.image !== null ? p.image : '/img/pikachu-silhouette.png'}">
           <div class="card-body">
             <h5 class="card-title">${p.name | pokename}</h5>

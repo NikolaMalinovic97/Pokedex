@@ -13,55 +13,6 @@
   padding: 15px;
 }
 
-/* CARDS */
-
-.card {
-  width: 180px;
-  background-image: url("assets/img/card-background/grass.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.card:hover {
-  cursor: pointer;
-  box-shadow: inset 0 0 100px #222224;
-}
-
-.card-body {
-  background-color: #222224b0;
-  color: #f0f0f0;
-}
-
-.card-title {
-  margin-bottom: 0 !important;
-  height: 48px;
-}
-
-.card-number {
-  background-image: url("assets/img/misc/pokeball.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #FFCB05;
-  text-shadow:
-    -1px -1px 0 #003A70,
-    1px -1px 0 #003A70,
-    -1px 1px 0 #003A70,
-    1px 1px 0 #003A70,
-    -2px 0 0 #003A70,
-    2px 0 0 #003A70,
-    0 2px 0 #003A70,
-    0 -2px 0 #003A70;
-
-  border-radius: 50%;
-  width: 34px !important;
-  height: 34px !important;
-
-  margin-bottom: -36px;
-  margin-left: 120px;
-}
-
 /* HEADER STYLES */
 
 nav {
@@ -135,6 +86,49 @@ footer {
 
 .copyright {
   color: #f0f0f0;
+}
+
+/* CARDS */
+
+.card {
+  width: 180px;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: inset 0 0 100px #222224;
+}
+
+.card-body {
+  background-color: #222224b0;
+  color: #f0f0f0;
+}
+
+.card-title {
+  margin-bottom: 0 !important;
+  height: 48px;
+}
+
+.card-number {
+  background-image: url("assets/img/pokeball.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #FFCB05;
+  text-shadow:
+    -1px -1px 0 #003A70,
+    1px -1px 0 #003A70,
+    -1px 1px 0 #003A70,
+    1px 1px 0 #003A70,
+    -2px 0 0 #003A70,
+    2px 0 0 #003A70,
+    0 2px 0 #003A70,
+    0 -2px 0 #003A70;
+  border-radius: 50%;
+  width: 34px !important;
+  height: 34px !important;
+  margin-bottom: -36px;
+  margin-left: 120px;
 }
 
 /* PAGINATION */
