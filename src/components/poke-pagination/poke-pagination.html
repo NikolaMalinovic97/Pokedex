@@ -1,0 +1,21 @@
+<template>
+  <div>
+    <ul class="pagination justify-content-center">
+      <li class="page-item ${activePage <= 1 ? 'disabled' : ''}">
+        <a class="page-link" click.delegate="setActivePage(activePage - 1)"><</a>
+      </li>
+      <li class="page-item ${page === activePage? 'active' : ''}" repeat.for="page of pages">
+        <a class="page-link" click.delegate="setActivePage(page)">${page}</a>
+      </li>
+      <li class="page-item ${activePage >= pages[pages.length-1] ? 'disabled' : ''}">
+        <a class="page-link" click.delegate="setActivePage(activePage + 1)">></a>
+      </li>
+    </ul>
+  </div>
+  <h1>
+    Active page: ${activePage}
+  </h1>
+  <h1>
+    Last page: ${lastPage}
+  </h1>
+</template>

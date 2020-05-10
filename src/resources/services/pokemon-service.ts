@@ -6,20 +6,31 @@ import { AureliaConfiguration } from 'aurelia-configuration/dist/commonjs/aureli
 @autoinject
 export class PokemonService {
 
-	numberOfAllPokemon;
+	url = 'https://pokeapi.co/api/v2';
+	// numberOfAllPokemon;
 
 	constructor(
 		private httpClient: HttpClient,
-		private paginationService: PaginationService,
+		// private paginationService: PaginationService,
 		private config: AureliaConfiguration
 	) { }
 
-	getPokemon(offset: number) {
+	getTotalCount() {
 		return new Promise((resolve, reject) => {
-			this.httpClient.fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`)
+			this.httpClient.fetch(`${this.url}/pokemon/?offset=0&limit=1`)
 				.then(result => { return result.json(); })
 				.then(data => {
-					this.paginationService.pages = this.loadPages(data.count); //problematicno
+					resolve(data.count);
+				})
+		})
+	}
+
+	getPokemon(offset: number) {
+		return new Promise((resolve, reject) => {
+			this.httpClient.fetch(`${this.url}/pokemon?offset=${offset}&limit=20`)
+				.then(result => { return result.json(); })
+				.then(data => {
+					// this.paginationService.pages = this.loadPages(data.count); //problematicno
 					const pokemonUrlList = this.loadUrls(data);
 					const promises = this.loadPromises(pokemonUrlList);
 					Promise.all(promises).then(result => {
@@ -29,23 +40,23 @@ export class PokemonService {
 		})
 	}
 
-	private loadPages(count) {
-		const lastPage = Math.ceil(count / 20);
-		if (this.paginationService.activePage <= 2) {
-			return [1, 2, 3, 4, 5];
-		}
-		else if (this.paginationService.activePage >= lastPage - 1) {
-			return [lastPage - 4, lastPage - 3, lastPage - 2, lastPage - 1, lastPage];
-		}
-		else {
-			return [
-				this.paginationService.activePage - 2,
-				this.paginationService.activePage - 1,
-				this.paginationService.activePage,
-				this.paginationService.activePage + 1,
-				this.paginationService.activePage + 2];
-		}
-	}
+	// private loadPages(count) {
+	// 	const lastPage = Math.ceil(count / 20);
+	// 	if (this.paginationService.activePage <= 2) {
+	// 		return [1, 2, 3, 4, 5];
+	// 	}
+	// 	else if (this.paginationService.activePage >= lastPage - 1) {
+	// 		return [lastPage - 4, lastPage - 3, lastPage - 2, lastPage - 1, lastPage];
+	// 	}
+	// 	else {
+	// 		return [
+	// 			this.paginationService.activePage - 2,
+	// 			this.paginationService.activePage - 1,
+	// 			this.paginationService.activePage,
+	// 			this.paginationService.activePage + 1,
+	// 			this.paginationService.activePage + 2];
+	// 	}
+	// }
 
 	private loadUrls(data) {
 		const pokemonUrlList = [];
@@ -69,7 +80,7 @@ export class PokemonService {
 			name: data.name,
 			image: data.sprites['front_default'],
 			type: data.types.map(type => type.type.name)
-		}));		
+		}));
 		return pokemon;
 	}
 }

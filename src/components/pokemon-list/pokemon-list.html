@@ -1,6 +1,7 @@
 <template>
   <require from="resources/value-converters/pokename"></require>
   <require from="resources/attributes/poke-background"></require>
+  <require from="components/poke-pagination/poke-pagination"></require>
   <!-- Cards -->
   <div class="container-fluid mt-4">
     <div class="row justify-content-center">
@@ -18,7 +19,7 @@
     </div>
   </div>
   <!-- Pagination -->
-  <div>
+  <!-- <div>
     <ul class="pagination justify-content-center">
       <li class="page-item ${paginationService.activePage <= 1 ? 'disabled' : ''}">
         <a class="page-link" click.delegate="onPageClick(paginationService.activePage - 1)"><</a>
@@ -30,5 +31,8 @@
         <a class="page-link" click.delegate="onPageClick(paginationService.activePage + 1)">></a>
       </li>
     </ul>
-  </div>
+  </div> -->
+  <poke-pagination last-page.bind="lastPage" page-click.call="test($event)"></poke-pagination>
+
+
 </template>
