@@ -19,20 +19,5 @@
     </div>
   </div>
   <!-- Pagination -->
-  <!-- <div>
-    <ul class="pagination justify-content-center">
-      <li class="page-item ${paginationService.activePage <= 1 ? 'disabled' : ''}">
-        <a class="page-link" click.delegate="onPageClick(paginationService.activePage - 1)"><</a>
-      </li>
-      <li class="page-item ${page === paginationService.activePage? 'active' : ''}" repeat.for="page of paginationService.pages">
-        <a class="page-link" click.delegate="onPageClick(page)">${page}</a>
-      </li>
-      <li class="page-item ${paginationService.activePage >= paginationService.pages[paginationService.pages.length-1] ? 'disabled' : ''}">
-        <a class="page-link" click.delegate="onPageClick(paginationService.activePage + 1)">></a>
-      </li>
-    </ul>
-  </div> -->
-  <poke-pagination last-page.bind="lastPage" page-click.call="test($event)"></poke-pagination>
-
-
+  <poke-pagination last-page.bind="lastPage" page-click.call="fetchPokemon($event)"></poke-pagination>
 </template>

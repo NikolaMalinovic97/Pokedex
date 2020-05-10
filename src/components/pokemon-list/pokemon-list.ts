@@ -1,46 +1,24 @@
 import { autoinject } from 'aurelia-framework';
 import { PokemonService } from 'resources/services/pokemon-service';
-import { PaginationService } from 'resources/services/pagination-service';
 
 @autoinject
 export class PokemonList {
 
   pokemon;
-  lastPage;
+  lastPage: number;
+  pokemonPerPage: number = 20;
 
-  constructor(
-    private pokemonService: PokemonService,
-    private paginationService: PaginationService
-  ) { }
+  constructor(private pokemonService: PokemonService) { }
 
-  attached() {
-    this.pokemonService.getTotalCount()
-      .then(count => {
-        this.lastPage = this.calculateNumberOfPages(count, 20);
-      });
-    this.pokemonService.getPokemon(0)
-      .then(pokemon => {
-        this.pokemon = pokemon;        
-      });
+  async attached() {
+    const totalPokemonCount = await this.pokemonService.getTotalCount();
+    this.lastPage = Math.ceil(totalPokemonCount / this.pokemonPerPage);
+    const fetchedPokemon = await this.pokemonService.getPokemon(0);
+    this.pokemon = fetchedPokemon;
   }
 
-  calculateNumberOfPages(count, itemsPerPage) {
-    return Math.ceil(count / itemsPerPage);
-  }
-
-  // onPageClick(pageNumber) {
-  //   if (pageNumber === this.paginationService.activePage)
-  //     return;
-  //   this.paginationService.activePage = pageNumber;
-  //   const offset = (pageNumber - 1) * 20;
-  //   this.pokemonService.getPokemon(offset).then((pokemon) => {
-  //     this.pokemon = pokemon;
-  //   });
-  // }
-
-  test(clickedPage) {
-    this.paginationService.activePage = clickedPage;
-    const offset = (clickedPage - 1) * 20;
+  fetchPokemon(clickedPage) {
+    const offset = --clickedPage * this.pokemonPerPage;
     this.pokemonService.getPokemon(offset).then((pokemon) => {
       this.pokemon = pokemon;
     });

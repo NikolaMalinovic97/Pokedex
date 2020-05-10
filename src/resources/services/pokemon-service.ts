@@ -1,62 +1,31 @@
 import { autoinject } from 'aurelia-dependency-injection';
 import { HttpClient } from 'aurelia-fetch-client';
-import { PaginationService } from './pagination-service';
 import { AureliaConfiguration } from 'aurelia-configuration/dist/commonjs/aurelia-configuration';
 
 @autoinject
 export class PokemonService {
 
 	url = 'https://pokeapi.co/api/v2';
-	// numberOfAllPokemon;
 
 	constructor(
 		private httpClient: HttpClient,
-		// private paginationService: PaginationService,
 		private config: AureliaConfiguration
 	) { }
 
-	getTotalCount() {
-		return new Promise((resolve, reject) => {
-			this.httpClient.fetch(`${this.url}/pokemon/?offset=0&limit=1`)
-				.then(result => { return result.json(); })
-				.then(data => {
-					resolve(data.count);
-				})
-		})
+	async getTotalCount() {
+		const result = await this.httpClient.fetch(`${this.url}/pokemon/?offset=0&limit=1`);
+		const data = await result.json();
+		return data.count;
 	}
 
-	getPokemon(offset: number) {
-		return new Promise((resolve, reject) => {
-			this.httpClient.fetch(`${this.url}/pokemon?offset=${offset}&limit=20`)
-				.then(result => { return result.json(); })
-				.then(data => {
-					// this.paginationService.pages = this.loadPages(data.count); //problematicno
-					const pokemonUrlList = this.loadUrls(data);
-					const promises = this.loadPromises(pokemonUrlList);
-					Promise.all(promises).then(result => {
-						resolve(this.loadPokemon(result));
-					})
-				})
-		})
+	async getPokemon(offset: number) {
+		const result = await this.httpClient.fetch(`${this.url}/pokemon?offset=${offset}&limit=20`);
+		const data = await result.json();
+		const pokemonUrlList = this.loadUrls(data);
+		const promises = this.loadPromises(pokemonUrlList);
+		const promisesResult = await Promise.all(promises);
+		return this.loadPokemon(promisesResult);
 	}
-
-	// private loadPages(count) {
-	// 	const lastPage = Math.ceil(count / 20);
-	// 	if (this.paginationService.activePage <= 2) {
-	// 		return [1, 2, 3, 4, 5];
-	// 	}
-	// 	else if (this.paginationService.activePage >= lastPage - 1) {
-	// 		return [lastPage - 4, lastPage - 3, lastPage - 2, lastPage - 1, lastPage];
-	// 	}
-	// 	else {
-	// 		return [
-	// 			this.paginationService.activePage - 2,
-	// 			this.paginationService.activePage - 1,
-	// 			this.paginationService.activePage,
-	// 			this.paginationService.activePage + 1,
-	// 			this.paginationService.activePage + 2];
-	// 	}
-	// }
 
 	private loadUrls(data) {
 		const pokemonUrlList = [];
