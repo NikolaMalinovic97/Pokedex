@@ -1,29 +1,24 @@
 import { autoinject } from 'aurelia-framework';
 import { PokemonService } from 'resources/services/pokemon-service';
-import { PaginationService } from 'resources/services/pagination-service';
 
 @autoinject
 export class PokemonList {
 
   pokemon;
+  lastPage: number;
+  pokemonPerPage: number = 20;
 
-  constructor(
-    private pokemonService: PokemonService,
-    private paginationService: PaginationService
-  ) { }
+  constructor(private pokemonService: PokemonService) { }
 
-  attached() {
-    this.pokemonService.getPokemon(0)
-      .then((pokemon) => {
-        this.pokemon = pokemon;        
-      });
+  async attached() {
+    const totalPokemonCount = await this.pokemonService.getTotalCount();
+    this.lastPage = Math.ceil(totalPokemonCount / this.pokemonPerPage);
+    const fetchedPokemon = await this.pokemonService.getPokemon(0);
+    this.pokemon = fetchedPokemon;
   }
 
-  onPageClick(pageNumber) {
-    if (pageNumber === this.paginationService.activePage)
-      return;
-    this.paginationService.activePage = pageNumber;
-    const offset = (pageNumber - 1) * 20;
+  fetchPokemon(clickedPage) {
+    const offset = --clickedPage * this.pokemonPerPage;
     this.pokemonService.getPokemon(offset).then((pokemon) => {
       this.pokemon = pokemon;
     });
