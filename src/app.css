@@ -1,5 +1,20 @@
+@font-face {
+  font-family: Muli;
+  src: url("assets/font/Muli-Regular.ttf");
+}
+
+@font-face {
+  font-family: BalsamiqSans;
+  src: url("assets/font/BalsamiqSans-Regular.ttf");
+}
+
 * {
   margin: 0;
+  font-family: 'Muli', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'BalsamiqSans', sans-serif;
 }
 
 .content-width {
@@ -50,6 +65,10 @@ nav {
     0 -2px 0 #003A70;
 }
 
+.nav-link {
+  font-size: large;
+}
+
 nav::after {
   content: '';
   background-color: #f0f0f0;
@@ -85,7 +104,16 @@ footer {
 }
 
 .copyright {
-  color: #f0f0f0;
+  color: #FFCB05 !important;
+  text-shadow:
+    -1px -1px 0 #003A70,
+    1px -1px 0 #003A70,
+    -1px 1px 0 #003A70,
+    1px 1px 0 #003A70,
+    -2px 0 0 #003A70,
+    2px 0 0 #003A70,
+    0 2px 0 #003A70,
+    0 -2px 0 #003A70;
 }
 
 /* CARDS */
