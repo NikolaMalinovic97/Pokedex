@@ -2,13 +2,17 @@
   <div>
     <ul class="pagination justify-content-center">
       <li class="page-item ${activePage <= 1 ? 'disabled' : ''}">
-        <a class="page-link" click.delegate="setActivePage(activePage - 1)"><</a>
+        <a class="page-link" click.delegate="setActivePage(activePage - 1)">
+          <i class="fas fa-chevron-left"></i>
+        </a>
       </li>
       <li class="page-item ${page === activePage? 'active' : ''}" repeat.for="page of pages">
         <a class="page-link" click.delegate="setActivePage(page)">${page}</a>
       </li>
       <li class="page-item ${activePage >= pages[pages.length-1] ? 'disabled' : ''}">
-        <a class="page-link" click.delegate="setActivePage(activePage + 1)">></a>
+        <a class="page-link" click.delegate="setActivePage(activePage + 1)">
+          <i class="fas fa-chevron-right"></i>
+        </a>
       </li>
     </ul>
   </div>
