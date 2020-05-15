@@ -1,5 +1,5 @@
 import { autoinject } from 'aurelia-framework';
-import { PokemonService } from 'resources/services/pokemon-service';
+import { PokemonService } from 'resources/services/pokemon-service';  
 
 @autoinject
 export class PokemonList {
@@ -13,14 +13,11 @@ export class PokemonList {
   async attached() {
     const totalPokemonCount = await this.pokemonService.getTotalCount();
     this.lastPage = Math.ceil(totalPokemonCount / this.pokemonPerPage);
-    const fetchedPokemon = await this.pokemonService.getPokemon(0);
-    this.pokemon = fetchedPokemon;
+    this.pokemon = await this.pokemonService.getPokemon(0, this.pokemonPerPage);
   }
 
   async refreshData(activePage) {
     const offset = --activePage * this.pokemonPerPage;
-    await this.pokemonService.getPokemon(offset).then((pokemon) => {
-      this.pokemon = pokemon;
-    });
+    this.pokemon = await this.pokemonService.getPokemon(offset, this.pokemonPerPage);
   }
 }

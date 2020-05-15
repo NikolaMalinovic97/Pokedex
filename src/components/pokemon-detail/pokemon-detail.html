@@ -1,0 +1,24 @@
+<template>
+  <require from="components/pokemon-detail/views/header.html"></require>
+  <require from="components/pokemon-detail/views/image-and-description.html"></require>
+  <require from="components/pokemon-detail/views/stats.html"></require>
+  <div class="container-fluid mt-5">
+    <!-- Header -->
+    <div class="row mb-4">
+      <div class="col-12 text-center rounded shadow pt-3 content-background">
+        <compose view="./views/header.html"/>
+      </div>
+    </div>
+    <!-- Image and Description - Stats -->
+    <div class="row">
+      <!-- Image and desription -->
+      <div class="col-xs-12 col-sm-12 col-md-4 p-0 pr-md-2 mb-4">
+        <compose view="./views/image-and-description.html"/>
+      </div>
+      <!-- Stats -->
+      <div class="col-md-8 p-0 pl-md-2">
+        <compose view="./views/stats.html"/>
+      </div>
+    </div>
+  </div>
+</template>
