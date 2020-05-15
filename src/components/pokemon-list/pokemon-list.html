@@ -1,7 +1,7 @@
 <template>
   <require from="resources/value-converters/pokename"></require>
   <require from="resources/attributes/poke-background"></require>
-  <require from="components/poke-pagination/poke-pagination"></require>
+  <require from="components/pagination/pagination"></require>
   <!-- Cards -->
   <div class="container-fluid mt-5">
     <div class="row justify-content-center">
@@ -19,5 +19,5 @@
     </div>
   </div>
   <!-- Pagination -->
-  <poke-pagination last-page.bind="lastPage" page-click.call="fetchPokemon($event)"></poke-pagination>
+  <pagination last-page.bind="lastPage"></pagination>
 </template>

@@ -1,6 +1,5 @@
 import { autoinject } from 'aurelia-framework';
-import { PokemonService } from 'resources/services/pokemon-service';
-import {Router} from 'aurelia-router';
+import { PokemonService } from 'resources/services/pokemon-service';  
 
 @autoinject
 export class PokemonList {
@@ -17,8 +16,8 @@ export class PokemonList {
     this.pokemon = await this.pokemonService.getPokemon(0, this.pokemonPerPage);
   }
 
-  async fetchPokemon(clickedPage) {
-    const offset = --clickedPage * this.pokemonPerPage;
+  async refreshData(activePage) {
+    const offset = --activePage * this.pokemonPerPage;
     this.pokemon = await this.pokemonService.getPokemon(offset, this.pokemonPerPage);
   }
 }

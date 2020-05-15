@@ -1,12 +1,11 @@
 import { bindable } from 'aurelia-framework';
 
-export class PokePagination {
+export class Pagination {
 
   @bindable activePage;
   @bindable lastPage;
   pages: number[];
-
-  @bindable pageClick;
+  parentComponent;
 
   constructor() {
     this.activePage = 1;
@@ -16,12 +15,18 @@ export class PokePagination {
     this.pages = this.loadPages();
   }
 
+  bind(ctx) {
+    this.parentComponent = ctx;
+  }
+
+  activePageChanged(newValue, oldValue) {
+    if (newValue)
+      this.parentComponent.refreshData(newValue);
+  }
+
   setActivePage(activePage) {
     if (activePage === this.activePage)
       return;
-    if (typeof this.pageClick === 'function') {
-      this.pageClick(activePage);
-    }
     this.activePage = activePage;
     this.pages = this.loadPages();
   }
