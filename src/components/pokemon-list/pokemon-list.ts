@@ -17,9 +17,14 @@ export class PokemonList {
     this.pokemon = fetchedPokemon;
   }
 
-  fetchPokemon(clickedPage) {
+  metodaA() {
+    console.log('bla bla');
+    
+  }
+
+  async refreshData(clickedPage) {
     const offset = --clickedPage * this.pokemonPerPage;
-    this.pokemonService.getPokemon(offset).then((pokemon) => {
+    await this.pokemonService.getPokemon(offset).then((pokemon) => {
       this.pokemon = pokemon;
     });
   }
