@@ -9,10 +9,7 @@ export class PokemonList {
   lastPage: number;
   pokemonPerPage: number = 20;
 
-  constructor(
-    private pokemonService: PokemonService,
-    private router: Router
-  ) { }
+  constructor(private pokemonService: PokemonService) { }
 
   async attached() {
     const totalPokemonCount = await this.pokemonService.getTotalCount();
@@ -23,9 +20,5 @@ export class PokemonList {
   async fetchPokemon(clickedPage) {
     const offset = --clickedPage * this.pokemonPerPage;
     this.pokemon = await this.pokemonService.getPokemon(offset, this.pokemonPerPage);
-  }
-
-  redirectToPokemonDetail(pokemonName: string) {
-    this.router.navigate(`pokemon/${pokemonName}`);
   }
 }

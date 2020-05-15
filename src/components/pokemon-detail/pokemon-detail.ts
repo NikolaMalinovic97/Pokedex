@@ -11,6 +11,6 @@ export class PokemonDetail {
 
   async activate(params) {  
     const pokemonName = params.name;
-    this.pokemon = await this.pokemonService.getSinglePokemon(pokemonName);    
+    this.pokemon = await this.pokemonService.getSinglePokemon(pokemonName);
   }
 }

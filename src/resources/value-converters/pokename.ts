@@ -16,10 +16,6 @@ export class PokenameValueConverter {
     return result;
   }
 
-  fromView(value) {
-    //
-  }
-
   private capitilizeFirstLetter(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
   }

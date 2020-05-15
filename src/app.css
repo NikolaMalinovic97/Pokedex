@@ -131,8 +131,9 @@ footer {
 }
 
 .card:hover {
-  cursor: pointer;
   box-shadow: inset 0 0 100px #222224;
+  color: #212529;
+  text-decoration: none;
 }
 
 .card-body {

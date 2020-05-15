@@ -6,7 +6,7 @@
   <div class="container-fluid mt-5">
     <div class="row justify-content-center">
       <div class="col-auto mb-5" repeat.for="p of pokemon">
-        <div class="card text-center" poke-background="${p.type[0]}" click.delegate="redirectToPokemonDetail(p.name)">
+        <a href="/pokemon/${p.name}" class="card text-center" poke-background="${p.type[0]}" >
           <img class="card-img-top" src="${p.image !== null ? p.image : '/img/pikachu-silhouette.png'}">
           <div class="card-body">
             <h5 class="card-title">${p.name | pokename}</h5>
@@ -14,7 +14,7 @@
               <span style="line-height: 33px;">${p.id < 1000 ? p.id : 'X'}</span>
             </p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
