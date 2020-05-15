@@ -1,11 +1,12 @@
 <template>
   <require from="resources/attributes/poke-background"></require>
+  <require from="resources/attributes/poketype-color"></require>
   <div class="rounded shadow content-background">
 		<div class="row" style="padding: 16px;">
 			<!-- Image -->
 			<div class="col-12 col-sm-6 col-md-12 mb-3">
 				<div poke-background="${pokemon.type[0]}">
-					<span repeat.for="t of pokemon.type" class="badge badge-pill badge-primary ml-1 mb-1">${t}</span>
+					<span repeat.for="t of pokemon.type" poketype-color="${t}" class="badge badge-pill text-capitalize shadow-large ml-1 mb-1">${t}</span>
 					<img class="card-img-top" src="${pokemon.image !== null ? pokemon.image : '/img/pikachu-silhouette.png'}" >
 				</div>
 			</div>
