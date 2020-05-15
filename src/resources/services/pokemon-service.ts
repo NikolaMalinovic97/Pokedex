@@ -18,13 +18,19 @@ export class PokemonService {
 		return data.count;
 	}
 
-	async getPokemon(offset: number) {
-		const result = await this.httpClient.fetch(`${this.url}/pokemon?offset=${offset}&limit=20`);
+	async getPokemon(offset: number, limit: number) {
+		const result = await this.httpClient.fetch(`${this.url}/pokemon?offset=${offset}&limit=${limit}`);
 		const data = await result.json();
 		const pokemonUrlList = this.loadUrls(data);
 		const promises = this.loadPromises(pokemonUrlList);
 		const promisesResult = await Promise.all(promises);
 		return this.loadPokemon(promisesResult);
+	}
+
+	async getSinglePokemon(pokemonName) {
+		const result = await this.httpClient.fetch(`${this.url}/pokemon/${pokemonName}`);
+		const data = await result.json();		
+		return this.loadSinglePokemon(data);
 	}
 
 	private loadUrls(data) {
@@ -51,5 +57,25 @@ export class PokemonService {
 			type: data.types.map(type => type.type.name)
 		}));
 		return pokemon;
+	}
+
+	private async loadSinglePokemon(data) {	
+		return {
+			id: data.id,
+			name: data.name,
+			image: data.sprites['front_default'],
+			type: data.types.map(type => type.type.name),
+			stats: data.stats.map(stat => ({name: stat.stat.name, value: stat.base_stat})),
+			description: await this.loadDescription(data)
+		}
+	}
+
+	private async loadDescription(input) {
+		const result = await this.httpClient.fetch(input.species.url);
+		const data = await result.json();
+		const description = data.flavor_text_entries.find(text => {
+			return text.language.name === 'en'
+		});
+		return description.flavor_text;
 	}
 }
