@@ -1,13 +1,16 @@
 <template>
-    <require from="resources/value-converters/pct-calc"></require>
+  <require from="resources/attributes/progressbar-value"></require>
+  <require from="resources/attributes/stat-icon"></require>
     <div class="rounded shadow p-3 content-background">
         <div class="row" repeat.for="stat of pokemon.stats">
-          <div class="col-12 col-md-4 col-lg-3">
-            <p class="text-capitalize" style="margin-bottom: 0;">${stat.name}:</p>
+          <div class="col-12 col-md-4 col-lg-3 pr-0">
+            <p class="text-capitalize" style="margin-bottom: 0;">
+              <i stat-icon="${stat.name}"></i> ${stat.name}:
+            </p>
           </div>
           <div class="col-12 col-md-8 col-lg-9">
             <div class="progress mt-1 mb-2 mb-md-3">
-              <div class="progress-bar" role="progressbar" css="width: ${stat.value | pctCalc}%;">${stat.value}</div>
+              <div class="progress-bar" role="progressbar" progressbar-value="${stat.value}">${stat.value}</div>
             </div>
           </div>
         </div>
