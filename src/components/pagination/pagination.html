@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ul class="pagination justify-content-center">
+  <ul class="pagination justify-content-center">
+    <div class="row shadow">
       <li class="page-item ${activePage <= 1 ? 'disabled' : ''}">
         <a class="page-link" click.delegate="setActivePage(activePage - 1)">
           <i class="fas fa-chevron-left"></i>
@@ -14,6 +14,6 @@
           <i class="fas fa-chevron-right"></i>
         </a>
       </li>
-    </ul>
-  </div>
+    </div>
+  </ul>
 </template>
