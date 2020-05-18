@@ -2,8 +2,18 @@
   <require from="resources/value-converters/pokename"></require>
   <require from="resources/attributes/poke-background"></require>
   <require from="components/pagination/pagination"></require>
-  <!-- Cards -->
   <div class="container-fluid mt-5">
+    <!-- Toolbar -->
+    <div class="row justify-content-end mb-5 p-2 rounded shadow content-background">
+      <p class="p-2 mb-0 mr-1">Pokemon per page:</p>
+      <select class="form-control mini-select" value.bind="pokemonPerPage" change.delegate="onPokemonPerPageChange()">
+        <option>5</option>
+        <option>10</option>
+        <option>20</option>
+        <option>50</option>
+      </select>
+    </div>
+    <!-- Cards -->
     <div class="row justify-content-center">
       <div class="col-auto mb-5" repeat.for="p of pokemon">
         <a href="/pokemon/${p.name}" class="card text-center" poke-background="${p.type[0]}" >
@@ -19,5 +29,5 @@
     </div>
   </div>
   <!-- Pagination -->
-  <pagination last-page.bind="lastPage"></pagination>
+  <pagination last-page.bind="lastPage" active-page.two-way="activePage"></pagination>
 </template>

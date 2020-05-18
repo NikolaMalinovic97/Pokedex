@@ -124,6 +124,13 @@ footer {
     0 -2px 0 #003A70;
 }
 
+/* TOOLBAR */
+
+.mini-select {
+  width: 54px !important;
+  padding: 5px !important;
+}
+
 /* CARDS */
 
 .card {

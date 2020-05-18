@@ -8,7 +8,7 @@ export class Pagination {
   parentComponent;
 
   constructor() {
-    this.activePage = 1;
+    // this.activePage = 1;
   }
 
   attached() {
@@ -22,13 +22,14 @@ export class Pagination {
   activePageChanged(newValue, oldValue) {
     if (newValue)
       this.parentComponent.refreshData(newValue);
+    this.pages = this.loadPages();
   }
 
   setActivePage(activePage) {
     if (activePage === this.activePage)
       return;
     this.activePage = activePage;
-    this.pages = this.loadPages();
+    // this.pages = this.loadPages();
   }
 
   private loadPages() {
