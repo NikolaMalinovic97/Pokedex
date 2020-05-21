@@ -5,12 +5,19 @@ import { PokemonService } from 'resources/services/pokemon-service';
 export class PokemonDetail {
 
   pokemon;
+  pokemonName;
+  isLoading: boolean;
 
   constructor(private pokemonService: PokemonService) {
   }
 
-  async activate(params) {  
-    const pokemonName = params.name;
-    this.pokemon = await this.pokemonService.getSinglePokemon(pokemonName);
+  async activate(params) {
+    this.isLoading = true;
+    this.pokemonName = params.name;
+  }
+
+  async attached() {
+    this.pokemon = await this.pokemonService.getSinglePokemon(this.pokemonName);
+    this.isLoading = false;
   }
 }

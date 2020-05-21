@@ -1,34 +1,64 @@
 import { autoinject } from 'aurelia-framework';
-import { PokemonService } from 'resources/services/pokemon-service';  
+import { PokemonService } from 'resources/services/pokemon-service';
+import { Router } from 'aurelia-router';
+import { activationStrategy } from 'aurelia-router';
 
 @autoinject
 export class PokemonList {
 
-  pokemon;
-  lastPage: number;
+  pokemon: [];
   pokemonPerPage: number;
   activePage: number;
+  lastPage: number;
+  isLoading: boolean;
 
-  constructor(private pokemonService: PokemonService) {
-    this.activePage = 1;
-    this.pokemonPerPage = 5;
+  constructor(private pokemonService: PokemonService, private router: Router) { }
+
+  determineActivationStrategy() {
+    return activationStrategy.replace;
+  }
+
+  async activate(params) {
+    this.isLoading = true;
+    this.pokemonPerPage = this.getPokemonPerPage();
+    this.lastPage = await this.getLastPage();
+    this.handlePageParam(params.page);
   }
 
   async attached() {
-    const totalPokemonCount = await this.pokemonService.getTotalCount();
-    this.lastPage = Math.ceil(totalPokemonCount / this.pokemonPerPage);
-    this.pokemon = await this.pokemonService.getPokemon(0, this.pokemonPerPage);
+    this.pokemon = await this.getPokemon(this.activePage);
+    this.isLoading = false;
   }
 
-  async refreshData(activePage) {
+  private getPokemonPerPage() {
+    const pokemonPerPage = localStorage.getItem('pokemonPerPage');
+    return pokemonPerPage ? +pokemonPerPage : 20;
+  }
+
+  private async getLastPage() {
+    const totalPokemonCount = await this.pokemonService.getTotalCount();
+    return Math.ceil(totalPokemonCount / this.pokemonPerPage);
+  }
+
+  private handlePageParam(pageParam) {
+    if (isNaN(pageParam) || pageParam < 1 || pageParam > this.lastPage) {
+      this.router.navigateToRoute('pokemon', { page: 1 }, { replace: true });
+    } else {
+      this.activePage = +pageParam;
+    }
+  }
+
+  private getPokemon(activePage) {
     const offset = --activePage * this.pokemonPerPage;
-    this.pokemon = await this.pokemonService.getPokemon(offset, this.pokemonPerPage);
+    return this.pokemonService.getPokemon(offset, this.pokemonPerPage);
   }
 
-  async onPokemonPerPageChange() {
-    const totalPokemonCount = await this.pokemonService.getTotalCount();
-    this.lastPage = Math.ceil(totalPokemonCount / this.pokemonPerPage);
-    this.activePage = 1;
-    this.refreshData(1);
+  pageChanged(page) {
+    this.router.navigateToRoute('pokemon', { page: page }, { replace: true });
+  }
+
+  private onPokemonPerPageChange() {
+    localStorage.setItem('pokemonPerPage', this.pokemonPerPage.toString());
+    this.router.navigateToRoute('pokemon', { page: 1 }, { replace: true });
   }
 }
