@@ -2,7 +2,8 @@
   <require from="components/pokemon-detail/views/header.html"></require>
   <require from="components/pokemon-detail/views/image-and-description.html"></require>
   <require from="components/pokemon-detail/views/stats.html"></require>
-  <div class="container-fluid mt-5">
+  <div if.bind="isLoading" class="loading">Loading&#8230;</div>
+  <div class="container-fluid mt-5" if.bind="pokemon !== undefined">
     <!-- Header -->
     <div class="row mb-4">
       <div class="col-12 text-center rounded shadow pt-3 content-background">
