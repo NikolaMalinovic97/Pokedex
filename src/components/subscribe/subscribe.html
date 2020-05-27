@@ -1,0 +1,68 @@
+<template>
+  <div class="container-fluid mt-5">
+    <div class="row rounded shadow pt-3 pb-3 content-background">
+      <div class="col-12 ">
+        <form submit.delegate="submit()">
+          <div class="row">
+
+            <!-- Name -->
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" value.bind="subData.name">
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" value.bind="subData.email">
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label>Phone number</label>
+                <input type="text" class="form-control" id="phone" placeholder="Enter phone number" value.bind="subData.phone">
+              </div>
+            </div>
+
+            <!-- Package -->
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label for="select">Select Package</label>
+                <select class="form-control" id="select" value.bind="subData.package">
+                  <option repeat.for="package of packages">${package}</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Period -->
+            <div class="col-12 col-md-6 mb-3">
+              <label class="form-check-label">Selectio subscription period:</label>
+              <div class="form-check" repeat.for="option of periodOptions">
+                <input class="form-check-input" type="radio" name="period-radio" model.bind="option" checked.bind="$parent.subData.period">
+                <label class="form-check-label">
+                  ${option} Month(s)
+                </label>
+              </div>
+            </div>
+
+            <!-- Recieve Email Checkbox -->
+            <div class="col-12 col-md-6 mb-3">
+              <label class="form-check-label">Would you like to recieve news?</label>
+              <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="recieve-emails" checked.bind="subData.isRecieveingEmails">
+                <label class="form-check-label">Recieve Emails</label>
+              </div>
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-dark btn-block mt-3">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
