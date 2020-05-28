@@ -7,25 +7,34 @@
 
             <!-- Name -->
             <div class="col-12 col-md-6">
-              <div class="form-group">
+              <div class="form-group" validation-errors.bind="nameErrors">
                 <label>Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter name" value.bind="subData.name">
+                <input type="text" class="form-control ${nameErrors.length ? 'is-invalid' : ''}" placeholder="Enter name" value.bind="subData.name & validate">
+                <div class="invalid-feedback" repeat.for="errorInfo of nameErrors">
+                  ${errorInfo.error.message}
+                </div>
               </div>
             </div>
 
             <!-- Email -->
             <div class="col-12 col-md-6">
-              <div class="form-group">
+              <div class="form-group" validation-errors.bind="emailErrors">
                 <label>Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" value.bind="subData.email">
+                <input type="text" class="form-control ${emailErrors.length ? 'is-invalid' : ''}" placeholder="Enter email" value.bind="subData.email & validate">
+                <div class="invalid-feedback" repeat.for="errorInfo of emailErrors">
+                  ${errorInfo.error.message}
+                </div>
               </div>
             </div>
 
             <!-- Phone -->
             <div class="col-12 col-md-6">
-              <div class="form-group">
+              <div class="form-group" validation-errors.bind="phoneErrors">
                 <label>Phone number</label>
-                <input type="text" class="form-control" id="phone" placeholder="Enter phone number" value.bind="subData.phone">
+                <input type="text" class="form-control ${phoneErrors.length ? 'is-invalid' : ''}" id="phone" placeholder="Enter phone number" value.bind="subData.phone & validate">
+                <div class="invalid-feedback" repeat.for="errorInfo of phoneErrors">
+                  ${errorInfo.error.message}
+                </div>
               </div>
             </div>
 

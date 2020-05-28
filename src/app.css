@@ -187,6 +187,12 @@ footer {
   color: #FFCB05 !important;
 }
 
+/* FORM */
+
+.form-group {
+  min-height: 93px;
+}
+
 /* LOADING */
 
 /* Absolute Center Spinner */
