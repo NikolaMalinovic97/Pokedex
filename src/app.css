@@ -60,7 +60,7 @@ nav {
     0 -2px 0 #003A70;
 }
 
-.active {
+a.active {
   color: #FFCB05 !important;
   text-shadow:
     -1px -1px 0 #003A70,
@@ -185,12 +185,31 @@ footer {
   background-color: #ee1515 !important;
   border-color: #222224 !important;
   color: #FFCB05 !important;
+  text-shadow:
+    -1px -1px 0 #003A70,
+    1px -1px 0 #003A70,
+    -1px 1px 0 #003A70,
+    1px 1px 0 #003A70,
+    -2px 0 0 #003A70,
+    2px 0 0 #003A70,
+    0 2px 0 #003A70,
+    0 -2px 0 #003A70;
 }
 
 /* FORM */
 
 .form-group {
   min-height: 93px;
+}
+
+/* SUBSCRIBE DIALOG */
+
+.dialog-background {
+  background-color: #f0f0f0;
+}
+
+.dialog-text-background {
+  background-color: lightgray;
 }
 
 /* LOADING */

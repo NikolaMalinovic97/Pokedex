@@ -2,6 +2,8 @@ import { SubData } from '../../resources/models/sub-data';
 import { Package } from '../../resources/models/package';
 import { autoinject } from 'aurelia-framework';
 import { ValidationControllerFactory, ValidationRules, validateTrigger } from 'aurelia-validation';
+import { DialogService } from 'aurelia-dialog';
+import { SubscribeDialog } from './dialog/subscribe-dialog';
 
 @autoinject
 export class Subscribe {
@@ -11,7 +13,7 @@ export class Subscribe {
   packages: string[];
   controller;
 
-  constructor(private controllerFactory: ValidationControllerFactory) {
+  constructor(private controllerFactory: ValidationControllerFactory, private dialogService: DialogService) {
     this.subData = new SubData;
     this.periodOptions = [1, 3, 6, 12];
     this.subData.period = this.periodOptions[0];
@@ -35,11 +37,16 @@ export class Subscribe {
   }
 
   submit() {
-    // console.log(this.subData);
     this.controller.validate().then(result => {
       if (result.valid) {
-        console.log('Result is Valid');
-        // Add confirm dialog
+
+        this.dialogService.open({ viewModel: SubscribeDialog, model: this.subData, lock: false }).whenClosed(response => {
+          if (!response.wasCancelled) {
+            // Add Toastr: Successfull subscription
+            // Navigate to home
+          }
+        });
+
       }
       else {
         console.log('Result is Invalid');
