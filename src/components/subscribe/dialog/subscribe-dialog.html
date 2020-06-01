@@ -1,0 +1,24 @@
+<template>
+	<div class="row p-3 rounded shadow-lg dialog-background">
+    <div class="col-6 dialog-text-background">
+      <p>Name:</p>
+      <p>Email:</p>
+      <p>Phone number:</p>
+      <p>Package:</p>
+      <p>Subscription period:</p>
+      <p>Recieve emails:</p>
+    </div>
+    <div class="col-6 dialog-text-background">
+      <p>${subData.name}</p>
+      <p>${subData.email}</p>
+      <p>${subData.phone}</p>
+      <p>${subData.package}</p>
+      <p>${subData.period} month(s)</p>
+      <p>${subData.isRecieveingEmails ? 'yes' : 'no'}</p>
+    </div>
+    <div class="col-12 mt-4 text-center">
+      <button type="button" class="btn btn-success" click.delegate="confirm()" style="width: 90px;">Confirm</button>
+      <button type="button" class="btn btn-danger" click.delegate="cancel()" style="width: 90px;">Cancel</button>
+    </div>
+  </div>
+</template>
