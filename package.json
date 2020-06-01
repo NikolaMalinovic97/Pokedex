@@ -15,7 +15,8 @@
     "aurelia-fetch-client": "^1.8.2",
     "aurelia-validation": "^2.0.0-rc1",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.5.0"
+    "jquery": "^3.5.0",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "@types/jest": "^25.1.3",
