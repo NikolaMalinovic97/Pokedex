@@ -36,6 +36,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: white;
 }
 
+.pointy {
+  cursor: pointer;
+}
+
 /* HEADER STYLES */
 
 nav {
@@ -44,7 +48,7 @@ nav {
 }
 
 .nav-link {
-  color: #FFCB05 !important;
+  color: black !important;
 }
 
 .nav-link:hover {

@@ -5,7 +5,7 @@
         <div class="row" repeat.for="stat of pokemon.stats">
           <div class="col-12 col-md-4 col-lg-3 pr-0">
             <p class="text-capitalize" style="margin-bottom: 0;">
-              <i stat-icon="${stat.name}"></i> ${stat.name}:
+              <i stat-icon="${stat.name}"></i> <span t="pokemon.${stat.name}">${stat.name}:</span>
             </p>
           </div>
           <div class="col-12 col-md-8 col-lg-9">
