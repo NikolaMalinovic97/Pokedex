@@ -1,0 +1,41 @@
+{
+	"link": {
+		"Test": "Test",
+		"Pokémon": "Pokémon",
+		"Subscribe": "Subscribe"
+	},
+	"pokemon": {
+		"per-page": "Pokémon per page:",
+		"description": "Description:",
+		"speed": "Speed:",
+		"special-defense": "Special Defense:",
+		"special-attack": "Special Attack:",
+		"defense": "Defense:",
+		"attack": "Attack:",
+		"hp": "Hp:"
+	},
+	"subscribe": {
+		"name": "Name",
+		"email": "Email",
+		"phone": "Phone number",
+		"select-package": "Select package",
+		"period": "Select subscription period:",
+		"months": "Month(s)",
+		"recieve-news": "Would you like to recieve news?",
+		"recieve-emails": "Recieve emails",
+		"package": "Package",
+		"sub-period": "Subscription period",
+		"yes": "Yes",
+		"no": "No",
+		"placeholder": {
+			"name": "Enter name",
+			"email": "Enter email",
+			"phone": "Enter phone number"
+		},
+		"button": {
+			"subscribe": "Subscribe",
+			"confirm": "Confirm",
+			"cancel": "Cancel"
+		}
+	}
+}

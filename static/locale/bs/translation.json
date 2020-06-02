@@ -1,0 +1,41 @@
+{
+	"link": {
+		"Test": "Test",
+		"Pokémon": "Pokemoni",
+		"Subscribe": "Pretplata"
+	},
+	"pokemon": {
+		"per-page": "Pokemona po stranici:",
+		"description": "Deskripcija:",
+		"speed": "Brzina",
+		"special-defense": "Spec. Odbrana:",
+		"special-attack": "Spec. Napad:",
+		"defense": "Odbrana:",
+		"attack": "Napad:",
+		"hp": "Hp:"
+	},
+	"subscribe": {
+		"name": "Ime",
+		"email": "Mejl",
+		"phone": "Broj telefona",
+		"select-package": "Odaberite paket",
+		"period": "Odaberite period pretplate:",
+		"months": "Mjesec/a/i",
+		"recieve-news": "Da li želite da primate novosti?",
+		"recieve-emails": "Primaj mejlove",
+		"package": "Paket",
+		"sub-period": "Period pretplate",
+		"yes": "Da",
+		"no": "Ne",
+		"placeholder": {
+			"name": "Unesite ime",
+			"email": "Unesite mejl",
+			"phone": "Unesite broj telefona"
+		},
+		"button": {
+			"subscribe": "Pretplati se",
+			"confirm": "Potvrdi",
+			"cancel": "Otkaži"
+		}
+	}
+}

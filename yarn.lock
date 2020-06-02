@@ -285,6 +285,13 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
+"@babel/runtime@^7.5.5":
+  version "7.10.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
+  integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.3.3", "@babel/template@^7.7.4", "@babel/template@^7.8.3", "@babel/template@^7.8.6":
   version "7.8.6"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.8.6.tgz#86b22af15f828dfb086474f964dcc3e39c43ce2b"
@@ -1390,7 +1397,7 @@ aurelia-configuration@^2.0.0:
     aurelia-templating "^1.7.0"
     aurelia-templating-binding "^1.4.0"
 
-aurelia-dependency-injection@^1.0.0, aurelia-dependency-injection@^1.3.0, aurelia-dependency-injection@^1.3.2, aurelia-dependency-injection@^1.5.0, aurelia-dependency-injection@^1.5.2:
+aurelia-dependency-injection@^1.0.0, aurelia-dependency-injection@^1.3.0, aurelia-dependency-injection@^1.3.2, aurelia-dependency-injection@^1.4.1, aurelia-dependency-injection@^1.5.0, aurelia-dependency-injection@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/aurelia-dependency-injection/-/aurelia-dependency-injection-1.5.2.tgz#a4a6aee8c3e480f11d84dba39fc6e615bf5f0469"
   integrity sha512-LnKgpXzKuG2A/YPGeg5OOw8zvkbvDBMRJA9QDCjZlxymsPI98dwggNSQHI8UK+hTIBqOmjjRxqdMoeROo2Gpbw==
@@ -1457,6 +1464,22 @@ aurelia-hot-module-reload@^0.2.0:
   resolved "https://registry.yarnpkg.com/aurelia-hot-module-reload/-/aurelia-hot-module-reload-0.2.1.tgz#f8d58bb966649250d36058b39a6fc19b041ef41b"
   integrity sha1-+NWLuWZkklDTYFizmm/BmwQe9Bs=
 
+aurelia-i18n@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/aurelia-i18n/-/aurelia-i18n-3.1.0.tgz#641392bddcb6761edc9cd540cf6869c1451f35fe"
+  integrity sha512-eiG9lRsRP2YZxTFDYEcB8qKVkByjW34UjHUR54qxRRYsxEtg/qdMSECdo2uu9q0oY5b7ghmZ2EGEXKP8ku8qRw==
+  dependencies:
+    aurelia-binding "^2.0.0"
+    aurelia-dependency-injection "^1.4.1"
+    aurelia-event-aggregator "^1.0.0"
+    aurelia-loader "^1.0.0"
+    aurelia-logging "^1.5.0"
+    aurelia-metadata "^1.0.4"
+    aurelia-pal "^1.3.0"
+    aurelia-templating "^1.8.2"
+    aurelia-templating-resources "^1.7.1"
+    i18next "^14.0.1"
+
 aurelia-loader-default@^1.0.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/aurelia-loader-default/-/aurelia-loader-default-1.2.1.tgz#a6787a140095888a96fda4b1bd576c937b06bc4d"
@@ -1507,7 +1530,7 @@ aurelia-logging@^1.0.0, aurelia-logging@^1.4.0, aurelia-logging@^1.5.0, aurelia-
   resolved "https://registry.yarnpkg.com/aurelia-logging/-/aurelia-logging-1.5.2.tgz#eddacfeded5da39808d36fd916829dd8d4c88ddd"
   integrity sha512-R0UdpGYBNSosBZ9WefmoIpgr36szFwQrRk2pbblhI+Vx911dUEEW85QXb6BRKVAP1ykz52Fuq8lCZxR6UupQXA==
 
-aurelia-metadata@^1.0.0, aurelia-metadata@^1.0.2, aurelia-metadata@^1.0.3:
+aurelia-metadata@^1.0.0, aurelia-metadata@^1.0.2, aurelia-metadata@^1.0.3, aurelia-metadata@^1.0.4:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/aurelia-metadata/-/aurelia-metadata-1.0.6.tgz#6e6bbab464b03f94157de666aa40d86b40dadab0"
   integrity sha512-u3GnsivLSssUmqPmny8EfEWPdUPcKUq1pPWO5q12i+eZ1d7WXa91eop37sYoYyGmO609YakUF1AMiY7occBrjA==
@@ -1581,7 +1604,7 @@ aurelia-templating-binding@^1.0.0, aurelia-templating-binding@^1.4.0:
     aurelia-logging "^1.0.0"
     aurelia-templating "^1.3.0"
 
-aurelia-templating-resources@^1.7.0:
+aurelia-templating-resources@^1.7.0, aurelia-templating-resources@^1.7.1:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/aurelia-templating-resources/-/aurelia-templating-resources-1.13.0.tgz#4500dc4c2e57bc5fffabee371e4ff209e47e9dcb"
   integrity sha512-ZaJxEsqkbhhJFdU9e9AcVXXqPO+/KcJwxkoTSVxp/u1L4En/uFfMdl8jPwZmne/ZuyB6RrKRDwFTGRboI/j4xw==
@@ -4366,6 +4389,18 @@ human-signals@^1.1.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
 
+i18next-xhr-backend@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/i18next-xhr-backend/-/i18next-xhr-backend-3.2.2.tgz#769124441461b085291f539d91864e3691199178"
+  integrity sha512-OtRf2Vo3IqAxsttQbpjYnmMML12IMB5e0fc5B7qKJFLScitYaXa1OhMX0n0X/3vrfFlpHL9Ro/H+ps4Ej2j7QQ==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+
+i18next@^14.0.1:
+  version "14.1.1"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-14.1.1.tgz#d569aff68c088151f09fcb0cb6f44b36d62731d3"
+  integrity sha512-HItn9RHLyrDqe6pw6qXMYHGPHNc3y1FZndJfBlD6k4sRS0FAlYLvqCDVIWFc1XultBgsv348TtvL/lleG6JgBg==
+
 iconv-lite@0.4.24:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
@@ -7016,6 +7051,11 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
+
+regenerator-runtime@^0.13.4:
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.5.tgz#d878a1d094b4306d10b9096484b33ebd55e26697"
+  integrity sha512-ZS5w8CpKFinUzOwW3c83oPeVXoNsrLsaCoLtJvAClH135j/R77RuymhiSErhm2lKcwSCIpmvIWSbDkIfAqKQlA==
 
 regex-not@^1.0.0, regex-not@^1.0.2:
   version "1.0.2"

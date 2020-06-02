@@ -8,8 +8,11 @@
             <!-- Name -->
             <div class="col-12 col-md-6">
               <div class="form-group" validation-errors.bind="nameErrors">
-                <label>Name</label>
-                <input type="text" class="form-control ${nameErrors.length ? 'is-invalid' : ''}" placeholder="Enter name" value.bind="subData.name & validate">
+                <label t="subscribe.name">Name</label>
+                <input type="text"
+                  class="form-control ${nameErrors.length ? 'is-invalid' : ''}"
+                  t="[placeholder]subscribe.placeholder.name"
+                  value.bind="subData.name & validate">
                 <div class="invalid-feedback" repeat.for="errorInfo of nameErrors">
                   ${errorInfo.error.message}
                 </div>
@@ -19,8 +22,11 @@
             <!-- Email -->
             <div class="col-12 col-md-6">
               <div class="form-group" validation-errors.bind="emailErrors">
-                <label>Email</label>
-                <input type="text" class="form-control ${emailErrors.length ? 'is-invalid' : ''}" placeholder="Enter email" value.bind="subData.email & validate">
+                <label t="subscribe.email">Email</label>
+                <input type="text"
+                  class="form-control ${emailErrors.length ? 'is-invalid' : ''}"
+                  t="[placeholder]subscribe.placeholder.email"
+                  value.bind="subData.email & validate">
                 <div class="invalid-feedback" repeat.for="errorInfo of emailErrors">
                   ${errorInfo.error.message}
                 </div>
@@ -30,8 +36,11 @@
             <!-- Phone -->
             <div class="col-12 col-md-6">
               <div class="form-group" validation-errors.bind="phoneErrors">
-                <label>Phone number</label>
-                <input type="text" class="form-control ${phoneErrors.length ? 'is-invalid' : ''}" id="phone" placeholder="Enter phone number" value.bind="subData.phone & validate">
+                <label t="subscribe.phone">Phone number</label>
+                <input type="text"
+                  class="form-control ${phoneErrors.length ? 'is-invalid' : ''}"
+                  id="phone" t="[placeholder]subscribe.placeholder.phone"
+                  value.bind="subData.phone & validate">
                 <div class="invalid-feedback" repeat.for="errorInfo of phoneErrors">
                   ${errorInfo.error.message}
                 </div>
@@ -41,7 +50,7 @@
             <!-- Package -->
             <div class="col-12 col-md-6">
               <div class="form-group">
-                <label for="select">Select Package</label>
+                <label t="subscribe.select-package" for="select">Select Package</label>
                 <select class="form-control" id="select" value.bind="subData.package">
                   <option repeat.for="package of packages">${package}</option>
                 </select>
@@ -50,26 +59,31 @@
 
             <!-- Period -->
             <div class="col-12 col-md-6 mb-3">
-              <label class="form-check-label">Selectio subscription period:</label>
+              <label class="form-check-label" t="subscribe.period">Selectio subscription period:</label>
               <div class="form-check" repeat.for="option of periodOptions">
-                <input class="form-check-input" type="radio" name="period-radio" model.bind="option" checked.bind="$parent.subData.period">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="period-radio"
+                  model.bind="option"
+                  checked.bind="$parent.subData.period">
                 <label class="form-check-label">
-                  ${option} Month(s)
+                  ${option} <span t="subscribe.months">Month(s)</span>
                 </label>
               </div>
             </div>
 
             <!-- Recieve Email Checkbox -->
             <div class="col-12 col-md-6 mb-3">
-              <label class="form-check-label">Would you like to recieve news?</label>
+              <label class="form-check-label"t="subscribe.recieve-news">Would you like to recieve news?</label>
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="recieve-emails" checked.bind="subData.isRecieveingEmails">
-                <label class="form-check-label">Recieve Emails</label>
+                <label class="form-check-label" t="subscribe.recieve-emails">Recieve Emails</label>
               </div>
             </div>
 
           </div>
-          <button type="submit" class="btn btn-dark btn-block mt-3">Subscribe</button>
+          <button type="submit" class="btn btn-dark btn-block mt-3" t="subscribe.button.subscribe">Subscribe</button>
         </form>
       </div>
     </div>
