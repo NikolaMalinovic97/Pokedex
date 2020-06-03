@@ -2,6 +2,7 @@ import { autoinject } from 'aurelia-framework';
 import { PokemonService } from 'resources/services/pokemon-service';
 import { Router } from 'aurelia-router';
 import { activationStrategy } from 'aurelia-router';
+import { EventAggregator } from 'aurelia-event-aggregator';
 
 @autoinject
 export class PokemonList {
@@ -12,7 +13,7 @@ export class PokemonList {
   lastPage: number;
   isLoading: boolean;
 
-  constructor(private pokemonService: PokemonService, private router: Router) { }
+  constructor(private pokemonService: PokemonService, private router: Router, private ea: EventAggregator) { }
 
   determineActivationStrategy() {
     return activationStrategy.replace;
@@ -58,7 +59,6 @@ export class PokemonList {
   }
 
   private onPokemonPerPageChange() {
-    localStorage.setItem('pokemonPerPage', this.pokemonPerPage.toString());
-    this.router.navigateToRoute('pokemon', { page: 1 }, { replace: true });
+    this.ea.publish('setPokemonPerPage', this.pokemonPerPage.toString());
   }
 }
