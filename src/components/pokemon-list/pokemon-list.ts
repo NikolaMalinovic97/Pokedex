@@ -11,7 +11,6 @@ export class PokemonList {
   pokemonPerPage: number;
   activePage: number;
   lastPage: number;
-  isLoading: boolean;
 
   constructor(private pokemonService: PokemonService, private router: Router, private ea: EventAggregator) { }
 
@@ -20,7 +19,7 @@ export class PokemonList {
   }
 
   async activate(params) {
-    this.isLoading = true;
+    this.ea.publish('isLoading', true);
     this.pokemonPerPage = this.getPokemonPerPage();
     this.lastPage = await this.getLastPage();
     this.handlePageParam(params.page);
@@ -28,7 +27,7 @@ export class PokemonList {
 
   async attached() {
     this.pokemon = await this.getPokemon(this.activePage);
-    this.isLoading = false;
+    this.ea.publish('isLoading', false);
   }
 
   private getPokemonPerPage() {

@@ -54,7 +54,7 @@ export class PokemonService {
 			id: data.id,
 			name: data.name,
 			image: data.sprites['front_default'],
-			type: data.types.reverse().map(type => type.type.name)
+			type: data.types.map(type => type.type.name)
 		}));
 		return pokemon;
 	}
@@ -64,7 +64,7 @@ export class PokemonService {
 			id: data.id,
 			name: data.name,
 			image: data.sprites['front_default'],
-			type: data.types.reverse().map(type => type.type.name),
+			type: data.types.map(type => type.type.name),
 			stats: data.stats.map(stat => ({name: stat.stat.name, value: stat.base_stat})),
 			description: await this.loadDescription(data)
 		}

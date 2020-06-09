@@ -2,7 +2,6 @@
   <require from="resources/value-converters/pokename"></require>
   <require from="resources/attributes/poke-background"></require>
   <require from="components/pagination/pagination"></require>
-  <div if.bind="isLoading" class="loading">Loading&#8230;</div>
   <div class="container-fluid mt-5">
     <!-- Toolbar -->
     <div class="row justify-content-end mb-5 p-3 rounded shadow content-background">
@@ -17,7 +16,7 @@
     <!-- Cards -->
     <div class="row justify-content-center">
       <div class="col-auto mb-5" repeat.for="p of pokemon">
-        <a href="/pokemon/${p.name}" class="card text-center" poke-background="${p.type[0]}" click.bind="this.isLoading = true">
+        <a href="/pokemon/${p.name}" class="card text-center" poke-background="${p.type[0]}">
           <img class="card-img-top" src="${p.image !== null ? p.image : '/img/pikachu-silhouette.png'}">
           <div class="card-body">
             <h5 class="card-title">${p.name | pokename}</h5>

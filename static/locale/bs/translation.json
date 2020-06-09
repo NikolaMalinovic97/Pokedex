@@ -1,8 +1,22 @@
 {
 	"link": {
+		"Home": "Početna",
 		"Test": "Test",
 		"Pokémon": "Pokemoni",
-		"Subscribe": "Pretplata"
+		"Subscribe": "Pretplata",
+		"Login": "Prijava"
+	},
+	"login": {
+		"signin": "Prijavi se u Pokedex aplikaciju",
+		"signout": "Odjavi se",
+		"username": "Korisničko ime",
+		"password": "Lozinka",
+		"other-services": "Koristi druge servise za prijavu",
+		"button": {
+			"signin": "Prijavi se",
+			"signin-google": "Google prijava",
+			"signin-facebook": "Facebook prijava"
+		}
 	},
 	"pokemon": {
 		"per-page": "Pokemona po stranici:",
@@ -36,6 +50,26 @@
 			"subscribe": "Pretplati se",
 			"confirm": "Potvrdi",
 			"cancel": "Otkaži"
+		}
+	},
+	"validation": {
+		"required": "Podatak ${$displayName} je nephodan",
+		"max-length": "Maksimalna dužina podatka ${$displayName} je ${$config.length} karaktera",
+		"email": "Unesite validan ${$displayName}",
+		"numbers-only": "${$displayName} mora sadržati samo brojeve"
+	},
+	"toastr": {
+		"login": {
+			"title": "Neispravni podaci",
+			"message": "Unesite ispravno korisničko ime i lozinku."
+		},
+		"sub-success": {
+			"title": "Čestitamo",
+			"message": "Uspješno ste se pretplatili."
+		},
+		"sub-error": {
+			"title": "Neispravne vrijednosti",
+			"message": "Unesite ispravne vrijednosti u sva polja."
 		}
 	}
 }

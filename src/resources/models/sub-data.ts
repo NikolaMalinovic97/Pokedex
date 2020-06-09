@@ -1,4 +1,4 @@
-import { Package } from "./package";
+import { Package } from "./enum/package";
 
 export class SubData {
 

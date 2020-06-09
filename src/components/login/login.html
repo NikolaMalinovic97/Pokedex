@@ -1,0 +1,47 @@
+<template>
+  <div class="container-fluid mt-5">
+    <div class="row rounded shadow pt-3 pb-3 content-background login-content">
+      <div class="col-12 text-center">
+        <img class="mt-5 mb-5" src="/img/pokedex-logo.png" width="260px">
+        <h5 class="mb-3" t="login.signin">Sign in to Pokedex app</h5>
+        <form submit.delegate="signIn()">
+          <!-- Username -->
+          <div class="col-12">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-user"></i></div>
+              </div>
+              <input type="text" class="form-control" t="[placeholder]login.username" value.bind="username">
+            </div>
+          </div>
+          <!-- Password -->
+          <div class="col-12">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><i class="fas fa-lock"></i></div>
+              </div>
+              <input type="password" class="form-control" t="[placeholder]login.password" value.bind="password">
+            </div>
+          </div>
+          <!-- Login Button -->
+          <div class="col-12">
+            <button class="btn btn-dark btn-block mt-3 background-red" t="login.button.signin">
+              Sign in
+            </button>
+          </div>
+        </form>
+        <hr>
+        <!-- Other services login -->
+        <div class="col-12">
+          <h5 class="mb-3" t="login.other-services">Use other services to sign in</h5>
+          <button class="btn btn-dark btn-block mt-3 background-red" click.delegate="signInGoogle()">
+            <i class="fab fa-google mr-10"></i><span t="login.button.signin-google">Sign in with Google</span>
+          </button>
+          <button class="btn btn-dark btn-block mt-3 mb-3 background-red" click.delegate="signInFacebook()">
+            <i class="fab fa-facebook-f mr-10"></i><span t="login.button.signin-facebook">Sign in with Facebook</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
