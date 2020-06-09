@@ -1,8 +1,22 @@
 {
 	"link": {
+		"Home": "Home",
 		"Test": "Test",
 		"Pokémon": "Pokémon",
-		"Subscribe": "Subscribe"
+		"Subscribe": "Subscribe",
+		"Login": "Signin"
+	},
+	"login": {
+		"signin": "Sign in to Pokedex app",
+		"signout": "Sign out",
+		"username": "Username",
+		"password": "password",
+		"other-services": "Use other services to sign in",
+		"button": {
+			"signin": "Sign in",
+			"signin-google": "Google sign in",
+			"signin-facebook": "Facebook sign in"
+		}
 	},
 	"pokemon": {
 		"per-page": "Pokémon per page:",
@@ -36,6 +50,26 @@
 			"subscribe": "Subscribe",
 			"confirm": "Confirm",
 			"cancel": "Cancel"
+		}
+	},
+	"validation": {
+		"required": "${$displayName} is required",
+		"max-length": "Maximal length of ${$displayName} is ${$config.length} characters",
+		"email": "Enter valid ${$displayName}",
+		"numbers-only": "${$displayName} must contain only numbers"
+	},
+	"toastr": {
+		"login": {
+			"title": "Invalid credentials",
+			"message": "Please enter valid username and password"
+		},
+		"sub-success": {
+			"title": "Congratulations",
+			"message": "You have successfully subscribed."
+		},
+		"sub-error": {
+			"title": "Invalid values",
+			"message": "Please enter valid values into input fields."
 		}
 	}
 }

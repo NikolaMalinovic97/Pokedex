@@ -3,9 +3,12 @@
   <require from="bootstrap/dist/css/bootstrap.min.css"></require>
   <require from="toastr/build/toastr.min.css"></require>
   <require from="components/header/header"></require>
-  <header></header>
+  <div if.bind="isLoading" class="loading">Loading&#8230;</div>
+  <header if.bind="router.currentInstruction.config.name !== 'login'"></header>
   <div class="content">
     <router-view></router-view>
   </div>
-  <compose view="components/footer/pokedex-footer.html"></compose>
+  <compose view="components/footer/pokedex-footer.html"
+    if.bind="router.currentInstruction.config.name !== 'login'">
+  </compose>
 </template>

@@ -40,6 +40,14 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
+.background-red {
+  background-color: #ee1515 !important;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
 /* HEADER STYLES */
 
 nav {
@@ -214,6 +222,13 @@ footer {
 
 .dialog-text-background {
   background-color: lightgray;
+}
+
+/* LOGIN */
+
+.login-content {
+  max-width: 400px;
+  margin: 0 auto !important;
 }
 
 /* LOADING */
